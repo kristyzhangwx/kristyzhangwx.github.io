@@ -261,6 +261,7 @@ a:hover {
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   align-items: flex-end;
+  position: relative;
 }
 .header-left {
   display: -webkit-box;
@@ -290,6 +291,7 @@ a:hover {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  cursor: pointer;
 }
 .avatar img {
   width: 100%;
@@ -342,6 +344,201 @@ a:hover {
 .navigation li a:hover {
   color: #db4d52;
 }
+.header-container {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+/* 反向旋转 */
+/* 正向旋转 */
+}
+.header-container .box_block {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  -webkit-animation: Positive_rotation 4s linear infinite;
+  -moz-animation: Positive_rotation 4s linear infinite;
+  -ms-animation: Positive_rotation 4s linear infinite;
+  animation: Positive_rotation 4s linear infinite;
+}
+.header-container .box_block:hover {
+  -webkit-animation: contrarotation 0.8s linear infinite;
+  -moz-animation: contrarotation 0.8s linear infinite;
+  -ms-animation: contrarotation 0.8s linear infinite;
+  animation: contrarotation 0.8s linear infinite; /* linear 动画从头到尾的速度是相同的 */
+/* infinite 动画无限次播放 */
+}
+.header-container .div1 {
+  width: 0;
+  height: 0;
+  border: 75px solid #ffb02d;
+  border-left-color: transparent; /* 隐藏 */
+  border-bottom-color: #3aa37a;
+  float: left;
+}
+.header-container .div2 {
+  width: 0;
+  height: 0;
+  border: 75px solid #ffcd35;
+  border-top-color: transparent;
+  border-right-color: #ee7a65;
+  float: left;
+}
+.header-container .div3 {
+  width: 0;
+  height: 0;
+  border: 75px solid #a0bd77;
+  border-bottom-color: transparent;
+  border-right-color: #5687e7;
+  float: left;
+}
+.header-container .div4 {
+  width: 0;
+  height: 0;
+  border: 75px solid #5697fe;
+  border-right-color: transparent;
+  border-top-color: #ee7a65;
+  float: left;
+}
+.header-container .remove_blocks {
+  clear: both;
+}
+.header-container .stick {
+  width: 14px;
+  height: 400px;
+  background: #666;
+  z-index: -1;
+  left: 0;
+  top: 450px;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+}
+@-moz-keyframes contrarotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes contrarotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-o-keyframes contrarotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@keyframes contrarotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-moz-keyframes Positive_rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes Positive_rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes Positive_rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes Positive_rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@media screen and (max-width: 700px) {
+  .header-container {
+    left: 100px;
+  }
+}
 footer {
   color: #a0a0a0;
   font-size: 12px;
@@ -359,17 +556,31 @@ footer a {
 }
 .about-me-mask {
   position: fixed;
-  background-color: rgba(255,255,255,0.48);
+  background-color: rgba(255,255,255,0.1);
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   height: 100%;
   z-index: 1000;
-  display: none;
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: -1;
 }
 .about-me-mask.open {
-  display: block;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  z-index: 1;
 }
 .about-me-wrap {
   display: -webkit-box;
@@ -400,10 +611,9 @@ footer a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #fbfbfb;
-  border: 1px solid #d0d0d0;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 10px 20px rgba(0,0,0,0.07);
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.07);
+  -webkit-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.1);
 }
 @media screen and (max-width: 479px) {
   .about-me-wrap {
