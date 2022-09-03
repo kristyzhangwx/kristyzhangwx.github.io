@@ -434,8 +434,8 @@ require([
   if (API_ID && API_KEY) {
     new valine({
       el: '#comment',
-      appId: HUHU_CONFIG.valine.API_ID,
-      appKey: HUHU_CONFIG.valine.API_KEY,
+      appId: API_ID,
+      appKey: API_KEY,
       notify: false,
       visitor: true,
       recordIP: true,
