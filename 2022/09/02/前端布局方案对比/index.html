@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    
+    <title>
+      前端布局方案对比 - 南方之林
+    </title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    
+<link rel="stylesheet" href="/style/style.css">
+
+  </head>
+  <body>
+    <canvas id='pagemap'></canvas>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、传统布局方案（静态布局）（国内PC端使用度比较多的布局方案）"><span class="toc-text">一、传统布局方案（静态布局）（国内PC端使用度比较多的布局方案）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-特点："><span class="toc-text">1. 特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设计方法："><span class="toc-text">2. 设计方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-优点："><span class="toc-text">3. 优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缺点："><span class="toc-text">4. 缺点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-参考网站"><span class="toc-text">5. 参考网站</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、流式布局（用的比较少）"><span class="toc-text">二、流式布局（用的比较少）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-特点：-1"><span class="toc-text">1. 特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设计方法：-1"><span class="toc-text">2. 设计方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-优点"><span class="toc-text">3. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缺点"><span class="toc-text">4. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-参考网站-1"><span class="toc-text">5. 参考网站</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、响应式布局（常见于门户网站，宣传网站）"><span class="toc-text">三、响应式布局（常见于门户网站，宣传网站）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-特点"><span class="toc-text">1. 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设计方法"><span class="toc-text">2. 设计方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-优点-1"><span class="toc-text">3. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缺点-1"><span class="toc-text">4. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-参考网站："><span class="toc-text">5. 参考网站：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、弹性布局（rem-em-移动端比较受欢迎，大部分移动h5网站采用这种方案"><span class="toc-text">四、弹性布局（rem&#x2F;em 移动端比较受欢迎，大部分移动h5网站采用这种方案)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-特点-1"><span class="toc-text">1. 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-设计方法-1"><span class="toc-text">2. 设计方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-优点-2"><span class="toc-text">3. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-缺点-2"><span class="toc-text">4. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-参考网站-2"><span class="toc-text">5. 参考网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择合适的布局需要看项目性质和开发周期"><span class="toc-text">选择合适的布局需要看项目性质和开发周期</span></a></li></ol></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search" />
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg" />
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class="">
+          Home
+        </a>
+        
+        <a href="/archives" class="">
+          Archives
+        </a>
+        
+        <a href="/categories" class="">
+          Categories
+        </a>
+        
+        <a href="/tags" class="">
+          Tags
+        </a>
+        
+        <a href="/friends" class="">
+          Friends
+        </a>
+        
+        <a href="/about" class="">
+          About
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">Kristy Zhang</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">Kristy Zhang</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class="">
+            Home
+          </a>
+          
+          <a href="/archives" class="">
+            Archives
+          </a>
+          
+          <a href="/categories" class="">
+            Categories
+          </a>
+          
+          <a href="/tags" class="">
+            Tags
+          </a>
+          
+          <a href="/friends" class="">
+            Friends
+          </a>
+          
+          <a href="/about" class="">
+            About
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/kristyzhangwx" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+    <div class="header">
+      
+      <div class="title">前端布局方案对比</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2022/09/02</span>
+        </span>
+
+        
+
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/前端">前端</a>
+                  
+                
+                  
+                    <a href="/tags/style">style</a>
+                  
+                
+                  
+                    <a href="/tags/布局">布局</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head><meta name="generator" content="Hexo 4.2.1"></head><body><h2 id="一、传统布局方案（静态布局）（国内PC端使用度比较多的布局方案）">一、传统布局方案（静态布局）（国内PC端使用度比较多的布局方案）<a class="post-anchor" href="#一、传统布局方案（静态布局）（国内PC端使用度比较多的布局方案）"></a></h2><h3 id="1-特点：">1. 特点：<a class="post-anchor" href="#1-特点："></a></h3><ul>
+<li>a）所有元素尺寸使用px作为单位</li>
+<li>b）不管浏览器尺寸多少，一律按照固定尺寸布局显示</li>
+<li>c）有最小宽度，设置了min-width，浏览器可视范围小于这个宽度会出现滚动条，大于这个范围部分加背景显示</li>
+<li>d）pc端比较常见</li>
+</ul>
+<a id="more"></a>
+<h3 id="2-设计方法：">2. 设计方法：<a class="post-anchor" href="#2-设计方法："></a></h3><ul>
+<li><p>a）PC端：居中布局，所有样式使用绝对宽度和高度（px），使用横向和竖向的滚动条来查阅被遮掩部分</p>
+</li>
+<li><p>b)  移动设备：移动端单独一套代码，布局，使用不同的域名或者path</p>
+<ul>
+<li><p>① 在viewport meta标签上设置width=320，页面的各个元素也采用px作为单位。通过用JS动态修改标签的initial-scale使得页面等比缩放，从而刚好占满整个屏幕。</p>
+</li>
+<li><p>② 设在viewport meta标签上设置content”width=640,user-scalable=no”，页面的各个元素也采用px作为单位。由于640px超出了手机宽度，浏览器会自动缩小页面至刚好全屏。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-优点：">3. 优点：<a class="post-anchor" href="#3-优点："></a></h3><ul>
+<li>a) 简单，兼容性问题少（pc端）</li>
+<li>b) PC端在时间紧凑下最不容易出错的方案，开发速度快，市面上大部分的门户网站采用了这种布局方式（我们公司也是）</li>
+</ul>
+<h3 id="4-缺点：">4. 缺点：<a class="post-anchor" href="#4-缺点："></a></h3><ul>
+<li>a）不能根据用户的屏幕尺寸做出不同的表现</li>
+<li>b)  移动viewport设置存在兼容性问题</li>
+</ul>
+<h3 id="5-参考网站">5. 参考网站<a class="post-anchor" href="#5-参考网站"></a></h3><ul>
+<li>a) 网易云音乐</li>
+<li>b) 永中PDF工具集（我们部门大部分官网门户网站均采用这种静态布局的方案）</li>
+<li>c) 移动端方案有兼容性问题，可参考的例子很难找了（没找到），老版的淘宝是采用的这种方案</li>
+</ul>
+<h2 id="二、流式布局（用的比较少）">二、流式布局（用的比较少）<a class="post-anchor" href="#二、流式布局（用的比较少）"></a></h2><h3 id="1-特点：-1">1. 特点：<a class="post-anchor" href="#1-特点：-1"></a></h3><ul>
+<li>a） 按照页面元素的宽度根据屏幕分辨率进行适配调整，但是整体布局不变。（栅栏系统，网格系统），屏幕分辨率变化时，页面里元素的大小会变化而但布局不变。</li>
+<li>b）网页中主要的划分区域的尺寸使用百分数（搭配min-<em>、max-</em>属性使用），例如，设置网页主体的宽度为80%，min-width为960px。图片也作类似处理（width:100%, max-width一般设定为图片本身的尺寸，防止被拉伸而失真）<h3 id="2-设计方法：-1">2. 设计方法：<a class="post-anchor" href="#2-设计方法：-1"></a></h3></li>
+<li>a) 使用%百分比定义宽度，高度大都是用px来固定住</li>
+<li>b) 可以根据可视区域 (viewport) 和父元素的实时尺寸进行调整，尽可能的适应各种分辨率。</li>
+<li>c) 配合 max-width/min-width 等属性控制尺寸流动范围以免过大或者过小影响阅读。<h3 id="3-优点">3. 优点<a class="post-anchor" href="#3-优点"></a></h3></li>
+<li>a) 早期屏幕尺寸比较单一，现在这种布局方式已经没有什么优点了<h3 id="4-缺点">4. 缺点<a class="post-anchor" href="#4-缺点"></a></h3></li>
+<li>a) 果屏幕尺度跨度太大，那么在相对其原始设计而言过小或过大的屏幕上不能正常显示,宽度使用%百分比定义，但是高度和文字大小等大都是用px来固定，所以在大屏幕的手机下显示效果会变成有些页面元素宽度被拉的很长，但是高度、文字大小还是和原来一样（即，这些东西无法变得“流式”），显示非常不协调。<h3 id="5-参考网站-1">5. 参考网站<a class="post-anchor" href="#5-参考网站-1"></a></h3></li>
+<li>a) 亚马逊的移动网站 <a href="https://www.amazon.cn/" target="_blank" rel="noopener">https://www.amazon.cn/</a></li>
+<li>b) 携程移动网站 <a href="https://m.ctrip.com/html5/?sourceid=497&amp;allianceid=4897&amp;sid=182042" target="_blank" rel="noopener">https://m.ctrip.com/html5/?sourceid=497&amp;allianceid=4897&amp;sid=182042</a></li>
+</ul>
+<h2 id="三、响应式布局（常见于门户网站，宣传网站）">三、响应式布局（常见于门户网站，宣传网站）<a class="post-anchor" href="#三、响应式布局（常见于门户网站，宣传网站）"></a></h2><h3 id="1-特点">1. 特点<a class="post-anchor" href="#1-特点"></a></h3><ul>
+<li>a) 每个屏幕分辨率下面会有一个布局样式，即元素位置和大小都会变。<h3 id="2-设计方法">2. 设计方法<a class="post-anchor" href="#2-设计方法"></a></h3></li>
+<li>a) 媒体查询+弹性布局+流式布局。使用 @media 媒体查询 ,弹性布局和网格系统 (Grid System) 配合相对布局单位进行布局，实际上就是综合响应式、流动等上述技术通过 CSS 给单一网页不同设备返回不同样式的技术统称。<h3 id="3-优点-1">3. 优点<a class="post-anchor" href="#3-优点-1"></a></h3></li>
+<li>a)  适应pc和移动端，如果足够耐心，效果完美<h3 id="4-缺点-1">4. 缺点<a class="post-anchor" href="#4-缺点-1"></a></h3></li>
+<li>a) 媒体查询是有限的，也就是可以枚举出来的，只能适应主流的宽高。</li>
+<li>b) 要匹配足够多的屏幕大小，工作量不小，设计也需要多个版本。(简而言之，可以完美，但是需要花时间）。<h3 id="5-参考网站：">5. 参考网站：<a class="post-anchor" href="#5-参考网站："></a></h3></li>
+<li>a）bootstrap官网</li>
+<li>b）<a href="https://thenextweb.com/" target="_blank" rel="noopener">https://thenextweb.com/</a></li>
+<li>c）<a href="https://mediaqueri.es/" target="_blank" rel="noopener">https://mediaqueri.es/</a>  这个网站收录了很多国外的响应式布局网站，有时间可以欣赏欣赏</li>
+<li>d）<a href="https://zhuanlan.zhihu.com/p/60091235" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60091235</a> （可以对比分析一下国内10大前端团队网站各采用了什么样的布局方案）</li>
+</ul>
+<h2 id="四、弹性布局（rem-em-移动端比较受欢迎，大部分移动h5网站采用这种方案">四、弹性布局（rem/em 移动端比较受欢迎，大部分移动h5网站采用这种方案)<a class="post-anchor" href="#四、弹性布局（rem-em-移动端比较受欢迎，大部分移动h5网站采用这种方案"></a></h2><h3 id="1-特点-1">1. 特点<a class="post-anchor" href="#1-特点-1"></a></h3><ul>
+<li>a) 包裹文字的各元素的尺寸采用em或者rem做单位，而页面的主要划分区域的尺寸仍使用百分数或px做单位（同「流式布局」或「固定布局」），em是相对于父元素的单位，用的比较少，rem相对于根元素的单位，简单明了好用，是主流.</li>
+<li>b）依照某特定宽度设定 rem 值（即 html 的 font-size），页面任何需要弹性适配的元素，尺寸均换算为 rem 进行布局；当页面渲染时，根据页面有效宽度进行计算，调整 rem 的大小，动态缩放以达到适配的效果。<h3 id="2-设计方法-1">2. 设计方法<a class="post-anchor" href="#2-设计方法-1"></a></h3></li>
+<li>a)  屏幕宽度pwidth/设计稿宽度pwidth*换算标准prem 作为根元素的font-size大小（则prem为1rem）其余尺寸都除以prem换算成rem<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRem</span>(<span class="hljs-params">pwidth, prem</span>) </span>{<br>    <span class="hljs-keyword">var</span> html = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'html'</span>)[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">var</span> oWidth = <span class="hljs-built_in">document</span>.body.clientWidth || <span class="hljs-built_in">document</span>.documentElement.clientWidth;<br>    html.style.fontSize = (oWidth / pwidth) * prem + <span class="hljs-string">'px'</span>;<br> }<br> getRem(<span class="hljs-number">750</span>, <span class="hljs-number">100</span>);<br></code></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<h3 id="3-优点-2">3. 优点<a class="post-anchor" href="#3-优点-2"></a></h3><ul>
+<li>a) 计算简单，换算统一，开发起来比较便捷</li>
+<li>b)移动端是一个不错的选择</li>
+</ul>
+<h3 id="4-缺点-2">4. 缺点<a class="post-anchor" href="#4-缺点-2"></a></h3><ul>
+<li>a）1px的问题：dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因为物理像素的增加，存在小于1px的显示空间。如果采用第一种方法，因为它统一对scale设置为1，那么我们假如想要实现0.5px, 就只能通过transform的方式。（或者也可以通过改变viewport 的 scale的值解决这个问题，如果考虑简便性的话，还是推荐采用transform去实现）</li>
+<li>b）内容网站不太适合，剥夺了用户调整字体大小的权利</li>
+<li>c)  现在已经有了更适合移动端计算单位 vw,vh(opera不支持，有兼容性问题）<h3 id="5-参考网站-2">5. 参考网站<a class="post-anchor" href="#5-参考网站-2"></a></h3></li>
+<li>a) 淘宝触屏版</li>
+</ul>
+<h3 id="选择合适的布局需要看项目性质和开发周期">选择合适的布局需要看项目性质和开发周期<a class="post-anchor" href="#选择合适的布局需要看项目性质和开发周期"></a></h3><ol>
+<li>如果开发周期充裕且开发的网站为门户类网站（官网，宣传页），最佳方案 多个尺寸版本设计稿+响应式布局。（精工细活）</li>
+<li>如果门户类网站开发周期短的话，比如先保证PC网站快速上线，那么PC采用静态布局（弹性布局，选其一）+少量媒体查询的方案是效率最高的。</li>
+<li>移动端想要呈现完美效果，建议和PC分离成两个版本，只需要保证主流的浏览器版本的话，可以大胆采用vw，vh的方案。保守起见的话采用rem的方案。</li>
+<li>功能性网站（浏览器同宽同高的单页应用，例如网盘项目优云）建议PC端和h5端分开写两套模板，pc推荐采用静态布局+少量媒体查询的方案，移动端采用rem方案（如果采用rem方案的话，窗口resize会造成页面元素视觉变化太大，不是很友好）</li>
+</ol>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"live2models/","model":{"jsonPath":"/live2dw/live2models/assets/tororo.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
+
+  
+    <div class="post-reward">
+    <div id="reward-button">打赏</div>
+      <div id="qr">
+        <div class="wrap">
+            
+            <div class="bg-wrap">
+              <a href="/images/zhifubao.jpeg" target="_block" class="bg" style="background-image:url('/images/zhifubao.jpeg')"></a>
+              支付宝
+            </div>
+            
+            
+            <div class="bg-wrap">
+                <a href="/images/weixin.jpeg" target="_block" class="bg" style="background-image:url('/images/weixin.jpeg')"></a>
+              微信
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2022/09/02/%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B%E7%A0%94%E7%A9%B6pdf%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89/">从头开始研究pdf文件解析（一）</a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2022/09/01/%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAelectron-react-typescript%E6%A1%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88%E4%B8%80%EF%BC%89/">从无到有开发electron+react+typescript桌面客户端（一）</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://kristyzhangwx.github.io">Kristy Zhang</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://kristyzhangwx.github.io/2022/09/02/%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/" style="word-break: break-all;">https://kristyzhangwx.github.io/2022/09/02/%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://kristyzhangwx.github.io">Kristy Zhang</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
+        <footer>
+          <div class="copyright">
+            ©2022
+            <a href="https://kristyzhangwx.github.io">Kristy Zhang</a> 
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"live2models/","model":{"jsonPath":"/live2dw/live2models/assets/tororo.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","pagemap":"pagemap.min","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 

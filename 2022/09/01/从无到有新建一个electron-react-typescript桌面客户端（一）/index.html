@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script>
+  var _hmt = _hmt || []
+  ;(function() {
+    var hm = document.createElement('script')
+    hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(hm, s)
+  })()
+</script> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    
+    <title>
+      从无到有开发electron+react+typescript桌面客户端（一） - 南方之林
+    </title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    
+<link rel="stylesheet" href="/style/style.css">
+
+  </head>
+  <body>
+    <canvas id='pagemap'></canvas>
+    
+    <div id="post-toc" class="animated hiddenToc hide">
+      <span class="title">Toc</span>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新建项目"><span class="toc-text">新建项目</span></a></li></ol>
+    </div>
+    
+    <div id="fixed-menu-wrap">
+      <span class="iconfont icon-sousuo search-box menu-reset"></span>
+      <span class="icon-toc menu-reset">Toc</span>
+      <span class="iconfont icon-arrowup menu-reset"></span>
+    </div>
+    <div id="fixed-menu">
+      <span class="iconfont icon-menu-"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="search-shade" class="animated hiddenSearch hide">
+      <div class="input-wrap">
+        <span class="iconfont icon-sousuo search-box"></span>
+        <input type="text" placeholder="Search" />
+        <span class="iconfont icon-close"></span>
+      </div>
+      <div class="search-result">
+        <div class="meta">
+          <span><b id="result-count">0</b> results found</span>
+          <img src="/images/logo.jpeg" />
+        </div>
+        <ul id="result-box"></ul>
+      </div>
+    </div>
+    <div id="menu-mask" class="animated hideMenuMask hide">
+      <span class="iconfont icon-close"></span>
+      <div class="nav">
+        
+        <a href="/" class="">
+          Home
+        </a>
+        
+        <a href="/archives" class="">
+          Archives
+        </a>
+        
+        <a href="/categories" class="">
+          Categories
+        </a>
+        
+        <a href="/tags" class="">
+          Tags
+        </a>
+        
+        <a href="/friends" class="">
+          Friends
+        </a>
+        
+        <a href="/about" class="">
+          About
+        </a>
+        
+      </div>
+    </div>
+    <div id="header">
+      <div class="intro">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <div class="author">Kristy Zhang</div>
+      </div>
+      <div class="nav">
+        <span class="iconfont icon-menu menu-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+    </div>
+    <div id="side" class="animated bounceInLeft">
+      <div class="shrink">
+        <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        <span class="iconfont icon-menu toggle-icon"></span>
+        <a href="#" class="search-box">
+          <span class="iconfont icon-sousuo"></span>
+        </a>
+      </div>
+      <div class="magnify">
+        <div class="about">
+          <div class="author">Kristy Zhang</div>
+          <a href="/" class="logo" style="background-image: url('/images/logo.jpeg')"></a>
+        </div>
+
+        <div class="nav">
+          
+          <a href="/" class="">
+            Home
+          </a>
+          
+          <a href="/archives" class="">
+            Archives
+          </a>
+          
+          <a href="/categories" class="">
+            Categories
+          </a>
+          
+          <a href="/tags" class="">
+            Tags
+          </a>
+          
+          <a href="/friends" class="">
+            Friends
+          </a>
+          
+          <a href="/about" class="">
+            About
+          </a>
+          
+          <a href="#" class="search-box">
+            <span class="iconfont icon-sousuo"></span>
+          </a>
+        </div>
+        <div class="bottom">
+          <div class="follow">
+            
+            <a href="https://github.com/kristyzhangwx" target="_block">
+              <span class="iconfont icon-github"></span>
+            </a>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="main animated bounceInRight delay-0.7s">
+        <article class="post-entry">
+    <div class="header">
+      
+      <div class="title">从无到有开发electron+react+typescript桌面客户端（一）</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2022/09/01</span>
+        </span>
+
+        
+
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/从零系列">从零系列</a>
+                  
+                
+                  
+                    <a href="/tags/electron">electron</a>
+                  
+                
+                  
+                    <a href="/tags/前端">前端</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head><meta name="generator" content="Hexo 4.2.1"></head><body><h2 id="新建项目">新建项目<a class="post-anchor" href="#新建项目"></a></h2><ol>
+<li>新建</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">mkdir desk-annual-lottery   <br><span class="hljs-built_in">cd</span> desk-annual-lottery<br>npm init<br>npm install electron --save-dev //汗 公司的网络这一步就失败了，咋也装不上<br></code></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
+
+<p>eletron安装失败的解决方案<br>新建.npmrc文件，添加一行配置</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs config">electron_mirror=https://npm.taobao.org/mirrors/electron/<br></code></pre></td></tr></tbody></table></figure>
+<p>重新执行electron的安装命令</p>
+<p>亲测有效</p>
+<p>继续</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><code class="hljs bash">mkdir web //用于放置前端相关代码<br>mkdir app //electron的<br><br>//用自己想要的脚手架创建一个web 模板应用，这里我用的umi<br><span class="hljs-built_in">cd</span> web<br>npx @umijs/create-umi-app  //报错的话就先安装一下 npm i @umijs/create-umi-app -g<br>npm install<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">cd app<br></code></pre></td></tr></tbody></table></figure>
+<p>编写app代码，创建main.ts</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> {app, BrowserWindow} <span class="hljs-keyword">from</span> <span class="hljs-string">'electron'</span>;<br><span class="hljs-keyword">import</span> path <span class="hljs-keyword">from</span> <span class="hljs-string">'path'</span>;<br><span class="hljs-keyword">let</span> mainWindow: Electron.BrowserWindow;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createWindow</span>(<span class="hljs-params"></span>): <span class="hljs-title">void</span> </span>{<br>  <span class="hljs-comment">// Create the browser window.</span><br>  mainWindow = <span class="hljs-keyword">new</span> BrowserWindow({<br>    height: <span class="hljs-number">600</span>,<br>    webPreferences: {<br>      preload: path.join(__dirname, <span class="hljs-string">'preload.js'</span>),<br>    },<br>    width: <span class="hljs-number">800</span>,<br>  });<br>  <span class="hljs-comment">// and load the index.html of the app.</span><br>  mainWindow.loadFile(path.join(__dirname, <span class="hljs-string">'../html/index.html'</span>));<br>  <span class="hljs-comment">// Open the DevTools.</span><br>  mainWindow.webContents.openDevTools();<br>  <span class="hljs-comment">// Emitted when the window is closed.</span><br>  mainWindow.on(<span class="hljs-string">'closed'</span>, () =&gt; {<br>    <span class="hljs-comment">// Dereference the window object, usually you would store windows</span><br>    <span class="hljs-comment">// in an array if your app supports multi windows, this is the time</span><br>    <span class="hljs-comment">// when you should delete the corresponding element.</span><br>    mainWindow = <span class="hljs-literal">null</span> <span class="hljs-keyword">as</span> any;<br>  });<br>}<br><span class="hljs-comment">// This method will be called when Electron has finished</span><br><span class="hljs-comment">// initialization and is ready to create browser windows.</span><br><span class="hljs-comment">// Some APIs can only be used after this event occurs.</span><br>app.on(<span class="hljs-string">'ready'</span>, createWindow);<br><span class="hljs-comment">// Quit when all windows are closed.</span><br>app.on(<span class="hljs-string">'window-all-closed'</span>, () =&gt; {<br>  <span class="hljs-comment">// On OS X it is common for applications and their menu bar</span><br>  <span class="hljs-comment">// to stay active until the user quits explicitly with Cmd + Q</span><br>  <span class="hljs-keyword">if</span> (process.platform !== <span class="hljs-string">'darwin'</span>) {<br>    app.quit();<br>  }<br>});<br>app.on(<span class="hljs-string">'activate'</span>, () =&gt; {<br>  <span class="hljs-comment">// On OS X it"s common to re-create a window in the app when the</span><br>  <span class="hljs-comment">// dock icon is clicked and there are no other windows open.</span><br>  <span class="hljs-keyword">if</span> (mainWindow === <span class="hljs-literal">null</span>) {<br>    createWindow();<br>  }<br>});<br><span class="hljs-comment">// In this file you can include the rest of your app"s specific main process</span><br><span class="hljs-comment">// code. You can also put them in separate files and require them here.</span><br></code></pre></td></tr></tbody></table></figure>
+<p>创建preload.ts</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// All of the Node.js APIs are available in the preload process.</span><br><span class="hljs-comment">// It has the same sandbox as a Chrome extension.</span><br><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"DOMContentLoaded"</span>, () =&gt; {<br>    <span class="hljs-keyword">const</span> replaceText = <span class="hljs-function">(<span class="hljs-params">selector: string, text: string</span>) =&gt;</span> {<br>      <span class="hljs-keyword">const</span> element = <span class="hljs-built_in">document</span>.getElementById(selector);<br>      <span class="hljs-keyword">if</span> (element) {<br>        element.innerText = text;<br>      }<br>    };<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> type <span class="hljs-keyword">of</span> [<span class="hljs-string">"chrome"</span>, <span class="hljs-string">"node"</span>, <span class="hljs-string">"electron"</span>]) {<br>      replaceText(<span class="hljs-string">`<span class="hljs-subst">${type}</span>-version`</span>, (process.versions <span class="hljs-keyword">as</span> any)[type]);<br>    }<br>  });<br></code></pre></td></tr></tbody></table></figure>
+<p>返回根目录，创建tsconfig.json</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">{<br>    "compilerOptions": {<br>      "target": "esnext",<br>      "module": "commonjs",<br>      "moduleResolution": "node",<br>      "resolveJsonModule": true,<br>      "importHelpers": true,<br>      "esModuleInterop": true,<br>      "sourceMap": true,<br>      "baseUrl": "./",<br>      "strict": true,<br>      "paths": {<br>        "*": ["node_modules/*"]<br>      },<br>      "allowSyntheticDefaultImports": true,<br>      "outDir": "./dist",<br>    },<br>    "include": [<br>      "app/**/*"<br>    ],<br>  }<br></code></pre></td></tr></tbody></table></figure>
+<p>package.json添加script命令</p>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><code class="hljs json">"scripts": {<br>  "build": "tsc",<br>  "watch": "tsc -w",<br>  "start": "npm run build &amp;&amp; electron ./dist/main.js"<br>},<br></code></pre></td></tr></tbody></table></figure>
+<p> 根目录创建html文件夹（先测试以下运行），进入文件夹创建index.html页面<br> </p><figure class="highlight html"><table><tbody><tr><td class="code"><pre><code class="hljs html"> <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"IE=edge"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>年会抽奖<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    测试<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure><br> 运行<br> <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><code class="hljs plain">npm start//如果运行失败，提示缺少什么库，npm 装一下，再重新运行<br></code></pre></td></tr></tbody></table></figure><br>程序启动如图<br><a href="./electron-demo-01.jpg" data-caption="electron-demo-01.jpg" data-fancybox="images"><img src="./electron-demo-01.jpg" alt="electron-demo-01.jpg"></a><p></p>
+<ol start="2">
+<li><p>将开发环境中引入的html页面替换成web中的页面,相对来说还是比较简单的</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// mainWindow.loadFile(path.join(__dirname, '../html/index.html'));</span><br>mainWindow.loadURL(<span class="hljs-string">'http://localhost:8000/'</span>);<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>调试<br>网页端的调试就不多说了，主要讲一下electron的debug<br>官网上有案例，直接复制过来<br>.vscode目录下新建launch.json</p>
+</li>
+</ol>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><code class="hljs json">{<br>  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,<br>  <span class="hljs-attr">"configurations"</span>: [<br>    {<br>      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Debug Main Process"</span>,<br>      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"node"</span>,<br>      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,<br>      <span class="hljs-attr">"cwd"</span>: <span class="hljs-string">"${workspaceFolder}"</span>,<br>      <span class="hljs-attr">"runtimeExecutable"</span>: <span class="hljs-string">"${workspaceFolder}/node_modules/.bin/electron"</span>,<br>      <span class="hljs-attr">"windows"</span>: {<br>        <span class="hljs-attr">"runtimeExecutable"</span>: <span class="hljs-string">"${workspaceFolder}/node_modules/.bin/electron.cmd"</span><br>      },<br>      <span class="hljs-attr">"args"</span>: [<span class="hljs-string">"."</span>]<br>    }<br>  ]<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在代码里需要debug的地方输入debugger<br>F5开始调试代码</p>
+<ol start="4">
+<li>区分当前环境<br>package.json</li>
+</ol>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><code class="hljs json">"scripts": {<br>   "dev": "set NODE_ENV=development &amp;&amp; tsc &amp;&amp; electron ./build/main.js",<br>   "build": "set NODE_ENV=production &amp;&amp; tsc",<br>   "pro": "npm run build &amp;&amp; electron ./build/main.js"<br> },<br></code></pre></td></tr></tbody></table></figure>
+
+<p>main.ts </p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><code class="hljs javascript">...<br><br><span class="hljs-keyword">const</span> node_env = process.env.NODE_ENV;<br><br>...<br><br><span class="hljs-keyword">if</span> (node_env === <span class="hljs-string">'development'</span>) {<br>  mainWindow.loadURL(<span class="hljs-string">'http://localhost:8000/'</span>);<br>} <span class="hljs-keyword">else</span> {<br>  <span class="hljs-comment">//web中.umirc.ts中设置  outputPath: '../dist',</span><br>  mainWindow.loadFile(path.join(__dirname, <span class="hljs-string">'../dist/index.html'</span>));<br>}<br><br>...<br></code></pre></td></tr></tbody></table></figure>
+
+<p>这里生产环境会有几个问题</p>
+<ul>
+<li>本地资源不做额外开发不支持browser模式，故将.umirc中的history type改为hash路由.</li>
+<li>web打包以后的路径会引用不到资源，是因为静态资源路径错误，publicPath改为相对路径</li>
+</ul>
+<figure class="highlight"><table><tbody><tr><td class="code"><pre><code class="hljs json">history: {<br>  type: 'hash',<br>},<br>publicPath: './',<br></code></pre></td></tr></tbody></table></figure>
+
+<p>到此为止，一个简单的开发版本已经完成，下一篇会介绍打包成客户端的步骤</p>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"live2models/","model":{"jsonPath":"/live2dw/live2models/assets/tororo.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
+
+  
+    <div class="post-reward">
+    <div id="reward-button">打赏</div>
+      <div id="qr">
+        <div class="wrap">
+            
+            <div class="bg-wrap">
+              <a href="/images/zhifubao.jpeg" target="_block" class="bg" style="background-image:url('/images/zhifubao.jpeg')"></a>
+              支付宝
+            </div>
+            
+            
+            <div class="bg-wrap">
+                <a href="/images/weixin.jpeg" target="_block" class="bg" style="background-image:url('/images/weixin.jpeg')"></a>
+              微信
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2022/09/02/%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94/">前端布局方案对比</a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2022/08/31/2022-8-31/">2022-8-31</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="https://kristyzhangwx.github.io">Kristy Zhang</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="https://kristyzhangwx.github.io/2022/09/01/%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAelectron-react-typescript%E6%A1%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88%E4%B8%80%EF%BC%89/" style="word-break: break-all;">https://kristyzhangwx.github.io/2022/09/01/%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAelectron-react-typescript%E6%A1%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="https://kristyzhangwx.github.io">Kristy Zhang</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
+        <footer>
+          <div class="copyright">
+            ©2022
+            <a href="https://kristyzhangwx.github.io">Kristy Zhang</a> 
+          </div>
+          
+        </footer>
+      </div>
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"live2models/","model":{"jsonPath":"/live2dw/live2models/assets/tororo.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  
+</html>
+<script type="text/javascript">
+                  window.HUHU_CONFIG = JSON.parse("{\"share\":[\"weibo\",\"weixin\",\"qqkongjian\",\"QQ\",\"douban\",\"facebook\",\"twitter\",\"google\"],\"service_worker\":{\"open\":false}}")
+                </script> <script type="text/javascript">window.addEventListener('load', function() {
+    
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '/scripts/app-built')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs && window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {require.config({"paths":{"util":"util","share":"share","search":"search","pagemap":"pagemap.min","registerSW":"registerSW","valine":"cdn/Valine.min","av":["https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min"],"pjax":["https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min"],"jquery":["https://cdn.bootcss.com/jquery/3.4.1/jquery.min"],"confirm":["https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min"],"fancybox":["https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min"],"chart":["https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.bundle.min"]},"map":{"*":{"css":"https://cdn.bootcss.com/require-css/0.1.10/css.min.js"}},"shim":{"fancybox":{"deps":["css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css"]},"confirm":{"deps":["css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css"]},"chart":{"deps":["css!https://cdn.bootcss.com/Chart.js/2.8.0-rc.1/Chart.min.css"]}},"waitSeconds":3})})
+  })</script> <script type="text/javascript">
+                  ;(function() {
+                    var bp = document.createElement('script')
+                    var curProtocol = window.location.protocol.split(':')[0]
+                    if (curProtocol === 'https') {
+                      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+                    } else {
+                      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+                    }
+                    var s = document.getElementsByTagName('script')[0]
+                    s.parentNode.insertBefore(bp, s)
+                  })()
+                </script> 
