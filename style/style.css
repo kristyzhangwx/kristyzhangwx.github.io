@@ -1876,6 +1876,17 @@ a {
   line-height: 1.5rem;
   border-left: 0.45rem solid #1e88e5;
 }
+#about {
+  padding: 1rem;
+}
+#about .title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+#about .description {
+  color: #666;
+  padding-left: 1rem;
+}
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1573718463074'); /* IE9 */
   src: url('iconfont.eot?t=1573718463074#iefix') format('embedded-opentype'), /* IE6-IE8 */
