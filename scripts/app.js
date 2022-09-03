@@ -26,8 +26,8 @@ require([
   })
 
   // valine评论
-  var API_ID = (HUHU_CONFIG.valine && HUHU_CONFIG.valine.API_ID) || ''
-  var API_KEY = (HUHU_CONFIG.valine && HUHU_CONFIG.valine.API_KEY) || ''
+  var API_ID = (HUHU_CONFIG.valine && HUHU_CONFIG.valine.appId) || ''
+  var API_KEY = (HUHU_CONFIG.valine && HUHU_CONFIG.valine.appKey) || ''
   if (API_ID && API_KEY) {
     new valine({
       el: '#comment',
